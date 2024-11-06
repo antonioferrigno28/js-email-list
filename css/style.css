@@ -9,3 +9,12 @@ img {
 a {
   text-decoration: none;
 }
+
+#generated-emails-list {
+  list-style: none;
+  padding: 2px;
+}
+
+#generated-emails-list li {
+  margin: 10px 0 10px 0;
+}

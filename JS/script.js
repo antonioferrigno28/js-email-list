@@ -10,16 +10,19 @@ const generatedEmailsContainer = document.getElementById(
   "generated-emails-container"
 );
 const generatedEmailsList = document.getElementById("generated-emails-list");
+
 let randomEmail;
 
 function generateEmails() {
   for (let i = 0; i < 10; i++) {
+    generatedEmailsContainer.innerHTML += "";
     generatedEmailsList.innerHTML = "";
     fetch("https://flynn.boolean.careers/exercises/api/random/mail")
       .then((response) => response.json())
       .then((data) => {
         randomEmail = data.response;
-        generatedEmailsList.innerHTML += `<li class="text-decoration-none">${randomEmail}</li>`;
+        generatedEmailsList.innerHTML += `<li class="text-success fw-bold"><a href="mailto:${randomEmail}">${randomEmail}</a></li>`;
+        generatedEmailsContainer.innerHTML = `<h3 class="text-center my-3 text-danger fs-2">Email generate con successo!</h3>`;
         console.log(randomEmail);
       });
   }
