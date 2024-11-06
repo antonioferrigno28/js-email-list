@@ -5,13 +5,19 @@
 // Abbellire con CSS o Bootstrap
 // Inserire un bottone che al click faccia il fetch per altre 10 mail (sostituendo le altre)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const generateButton = document.getElementById("button");
 let randomEmail;
 
-for (let i = 0; i < 10; i++) {
-  fetch("https://flynn.boolean.careers/exercises/api/random/mail")
-    .then((response) => response.json())
-    .then((data) => {
-      randomEmail = data.response;
-      console.log(randomEmail);
-    });
+function generateEmails() {
+  for (let i = 0; i < 10; i++) {
+    console.clear();
+    fetch("https://flynn.boolean.careers/exercises/api/random/mail")
+      .then((response) => response.json())
+      .then((data) => {
+        randomEmail = data.response;
+        console.log(randomEmail);
+      });
+  }
 }
+
+generateButton.addEventListener("click", generateEmails);
