@@ -6,6 +6,9 @@
 // Inserire un bottone che al click faccia il fetch per altre 10 mail (sostituendo le altre)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const generateButton = document.getElementById("button");
+const generatedEmailsContainer = document.getElementById(
+  "generated-emails-container"
+);
 let randomEmail;
 
 function generateEmails() {
@@ -19,5 +22,7 @@ function generateEmails() {
       });
   }
 }
+
+generateEmails();
 
 generateButton.addEventListener("click", generateEmails);
