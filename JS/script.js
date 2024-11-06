@@ -9,18 +9,17 @@ const generateButton = document.getElementById("button");
 const generatedEmailsContainer = document.getElementById(
   "generated-emails-container"
 );
+const generatedEmailsList = document.getElementById("generated-emails-list");
 let randomEmail;
 
 function generateEmails() {
   for (let i = 0; i < 10; i++) {
-    generatedEmailsContainer.innerHTML = "";
+    generatedEmailsList.innerHTML = "";
     fetch("https://flynn.boolean.careers/exercises/api/random/mail")
       .then((response) => response.json())
       .then((data) => {
         randomEmail = data.response;
-        generatedEmailsContainer.innerHTML += `<ul>
-        <li>${randomEmail}</li>
-        </ul>`;
+        generatedEmailsList.innerHTML += `<li class="text-decoration-none">${randomEmail}</li>`;
         console.log(randomEmail);
       });
   }
