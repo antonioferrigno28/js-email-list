@@ -13,11 +13,14 @@ let randomEmail;
 
 function generateEmails() {
   for (let i = 0; i < 10; i++) {
-    console.clear();
+    generatedEmailsContainer.innerHTML = "";
     fetch("https://flynn.boolean.careers/exercises/api/random/mail")
       .then((response) => response.json())
       .then((data) => {
         randomEmail = data.response;
+        generatedEmailsContainer.innerHTML += `<ul>
+        <li>${randomEmail}</li>
+        </ul>`;
         console.log(randomEmail);
       });
   }
