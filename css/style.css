@@ -6,13 +6,12 @@ img {
   width: 55%;
 }
 
-a {
-  text-decoration: none;
+a:hover {
+  color: black;
 }
 
 #generated-emails-list {
-  list-style: none;
-  padding: 2px;
+  list-style: square;
 }
 
 #generated-emails-list li {
